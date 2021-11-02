@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nth Factorial, Sum and Average</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://th.bing.com/th/id/OIP.TslY_euVT0J5fBFuE24swAHaHa?pid=ImgDet&rs=1" type="image/icon type">
+</head>
+<body>
+<div class="wrapper">
+<ul class="menu cf">
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="">Assignments</a>
+<ul class="submenu">
+<li><a href="Javascript.html">Assignment #1 - Simple Computation in Javascript</a></li>
+<li><a href="incometax.html">Assignment #2 - Income Tax Calculator Program</a></li>
+<li><a href="nthfactorial.html">Assignment #3 - Nth Factorial, Sum and Average</a></li>
+<li><a href="SimplePayroll.html">Assignment #4 - Simple Payroll</a></li>
+</ul> 
+</li>
+<li><a href="Aboutme.html">About Me</a></li>
+<li><a href="Feedback.html">Feedback</a></li>
+</ul>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  
+    <div id="factorial">
+                <h1><br>Nth Factorial, Sum, and Average Calculator<br></h1>
+			    <p id="borderx">Enter number: &nbsp;<input id="num"  placeholder="Enter number" onkeyup="calc()"></p>
+                <p id="borderx">Nth Factorial: &nbsp;
+                    <input id="nth"  placeholder="Nth factorial" readonly></p> 
+                <p id="borderx">Sum:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="sum"  placeholder="Sum" readonly></p>
+                <p id="borderx">Average:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+                    <input id="ave"  placeholder="Average" readonly></p>
+           </div>
+      </div>
+             <script>
+                function calc(){
+                    var num = document.getElementById("num").value*1;
+                    console.log(num);
+                    var i = 1;
+                    var nth = 1;
+                    while (i <= num){
+                    nth = i * nth;
+                    i++;
+                    }
+                    document.getElementById("nth").value = Math.round(nth*100)/100; 
+
+                    var o = 0;
+                    var sum = 0;
+                    do{
+                        sum = o + sum;
+                        o++;
+                    }
+                    while (o <= num);
+                    document.getElementById("sum").value = Math.round(sum*100)/100;  
+
+                    var ave = 0;
+                    for (var p = 0; p<=num; p++){
+                        ave = ave + p;
+                    }
+                    ave = ave/num;
+                    document.getElementById("ave").value = Math.round(ave*100)/100;  
+                    }  
+</script>
+
+</div>
+</body>
+</html>

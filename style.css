@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+*{
+	padding: 0;
+	margin: 0;
+  
+}
+.wrapper{
+	background: url('https://wallpapercave.com/wp/wp7612570.jpg') no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+/* Clearing floats */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+/* Mini reset, no margins, paddings or bullets */
+.menu,
+.submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Main level */
+.menu{
+  width: 100%;
+  padding: 0;
+  position: relative;
+  float: left;
+  background: #897ba7;
+  list-style: none;
+  font-family: Century Gothic, sans-serif;
+
+}
+
+.menu > li {
+  background: #897ba7;
+  float: left;
+  position: relative;
+  transform: skewX(25deg);
+}
+
+.menu a {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica;
+  font-size: 14px;
+}   
+
+.menu li:hover {
+  background: #e74c3c;
+}   
+
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+
+/* Dropdown */
+.submenu {
+  position: absolute;
+  width: 200px;
+  left: 50%; margin-left: -100px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+
+.submenu li {
+  background-color: #34495e;
+  position: relative;
+  overflow: hidden;   
+}           
+
+.submenu > li > a {
+  padding: 1em 2em;     
+}
+
+.submenu > li::after {
+  content: '';
+  position: absolute;
+  top: -125%;
+  height: 100%;
+  width: 100%;      
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9);     
+}   
+
+/* Odd stuff */
+.submenu > li:nth-child(odd){
+  transform: skewX(-25deg) translateX(0);
+}
+
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}       
+
+/* Even stuff */
+.submenu > li:nth-child(even){
+  transform: skewX(25deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+
+/* Show dropdown */
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;     
+}
+
+.submenu li {
+  transition: .2s ease transform;
+}
+
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}   
+
+.menu > li:hover .submenu li:nth-child(even){
+  transform: skewX(25deg) translateX(15px);     
+}
+
+.menu > li:hover .submenu li:nth-child(odd){
+  transform: skewX(-25deg) translateX(-15px);     
+}
+.wrapper .center{
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	font-family: sans-serif;
+	user-select: none;
+}
+.center h1{
+	color: white;
+	font-size: 70px;
+	width: 900px;
+	font-weight: bold;
+	text-align: center;
+}
+.center h2{
+	color: white;
+	font-size: 70px;
+	font-weight: bold;
+	margin-top: 10px;
+	width: 885px;
+	text-align: center;
+}
+body {
+	text-align:center;
+	font-family:georgia;
+	background: #910; /* For no gradient support */
+	background: -webkit-linear-gradient(left top, #910, #000); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #910, #000); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #910, #000); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #910, #000); /* Standard syntax */
+	}
+h2 {
+	background-color:#EEE;
+	margin-left:10%;
+	margin-right:10%;
+	border-radius:10px;
+	box-shadow:2.5px 5px 15px;
+	}
+p {
+	font-weight:bold;
+	color:white;
+	text-align:left;
+	margin-left:20%;
+	}
+input {
+	width:75%;
+	text-align:center;
+	}
+#container {
+	background-color:#335684;
+	margin-top:50px;
+	margin-left:25%;
+	margin-right:25%;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-radius:20px;
+	box-shadow:5px 15px 25px;
+	}
+  #income {
+    background-color:#335684;
+    margin-top:50px;
+    margin-left:15%;
+    margin-right:25%;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius:20px;
+    box-shadow:5px 15px 25px;
+    }
+    #factorial {
+      background-color:#335684;
+      margin-top:50px;
+      margin-left:15%;
+      margin-right:25%;
+      padding-top:5px;
+      padding-bottom:5px;
+      border-radius:20px;
+      box-shadow:5px 15px 25px;
+      }
+      #instruction {
+  background-color:#335684;
+  margin-top:50px;
+  margin-left:15%;
+  margin-right:25%;
+  padding-top:5px;
+  padding-bottom:5px;
+  border-radius:20px;
+  box-shadow:5px 15px 25px;
+  }
+    
+      .tax_he {
+        text-align:center;
+          color:#3c3c3c;
+          font-family: Helvetica, Arial, sans-serif;
+          background: -webkit-linear-gradient(left top, #910, #000); 
+          background: -o-linear-gradient(bottom right, #910, #000); 
+          background: -moz-linear-gradient(bottom right, #910, #000); 
+          background: linear-gradient(to bottom right, #910, #000); 
+          }
+          
+        
+        #borderx {
+            padding:10px;
+            border-radius:10px;
+            border:0;
+            box-shadow:0 0 15px 4px rgba(0,0,0,0)  
+        }
+        #payroll {
+          background-color:#335684;
+          margin-top:50px;
+          margin-left:15%;
+          margin-right:25%;
+          padding-top:5px;
+          padding-bottom:5px;
+          border-radius:20px;
+          box-shadow:5px 15px 25px;
+          }
+          .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 2px 2px;
+            cursor: pointer;
+          }
+          .button2 {background-color: #008CBA;} /* Blue */
+          #table {
+            background-color:#335684;
+            margin-top:50px;
+            margin-left:15%;
+            margin-right:25%;
+            padding-top:5px;
+            padding-bottom:5px;
+            border-radius:20px;
+            box-shadow:5px 15px 25px;
+            }
+            @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+a, a:hover {
+text-decoration: none;
+}
+.socialbtns, .socialbtns ul, .socialbtns li {
+margin: 0;
+padding: 5px;
+}
+.socialbtns li {
+list-style: none outside none;
+display: inline-block;
+}
+.socialbtns .fa {
+width: 40px;
+height: 28px;
+color: #000;
+background-color: #FFF;
+border: 1px solid #000;
+padding-top: 12px;
+border-radius: 22px;
+-moz-border-radius: 22px;
+-webkit-border-radius: 22px;
+-o-border-radius: 22px;
+}
+.socialbtns .fa:hover {
+color: #FFF;
+background-color: #000;
+border: 1px solid #000;
+}
+ 

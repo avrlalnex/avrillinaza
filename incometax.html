@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Income Tax Calculator</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href=
+<link rel="icon" href="https://th.bing.com/th/id/OIP.TslY_euVT0J5fBFuE24swAHaHa?pid=ImgDet&rs=1" type="image/icon type">
+</head>
+<body>
+<div class="wrapper">
+<ul class="menu cf">
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="">Assignments</a>
+<ul class="submenu">
+<li><a href="Javascript.html">Assignment #1 - Simple Computation in Javascript</a></li>
+<li><a href="incometax.html">Assignment #2 - Income Tax Calculator Program</a></li>
+<li><a href="nthfactorial.html">Assignment #3 - Nth Factorial, Sum and Average</a></li>
+<li><a href="SimplePayroll.html">Assignment #4 - Simple Payroll</a></li>
+</ul> 
+</li>
+<li><a href="Aboutme.html">About Me</a></li>
+<li><a href="Feedback.html">Feedback</a></li>
+</ul>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<div id="income">
+    
+          <h2><br>Income Tax Calculator<br></h2>
+<br /><br />
+                <label for="tax"> Enter Salary:</label>
+                <input id="tax" name "tax" >
+<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button onclick="calc()"> Calculate </button>
+                <h2 id="tax_len"></h2>
+                <p id="tax_he"></p> 
+    </div>
+  </div>
+
+    <script>
+        
+        function calc(){
+            var tax = document.getElementById("tax").value*1;
+            var tax_he = 0;
+            
+            console.log(tax);
+            
+            if(tax <= 250000){
+                tax_he = 0.00;
+            }
+            else if (tax > 250000 && tax <= 400000){
+                tax_he = (tax-250000)*.2;
+            }
+            else if (tax > 400000 && tax <= 800000){
+                tax_he = ((tax-400000)*.25) + 30000;
+            }
+            else if (tax > 800000 && tax <= 2000000){
+                tax_he = ((tax-800000)*.3) + 130000;
+            }
+            else if (tax > 2000000 && tax <= 8000000){
+                tax_he = ((tax-2000000)*.32) + 490000;
+            }
+            else{
+                tax_he = ((tax-8000000)*.35) + 2410000;
+        }
+    
+        document.getElementById("tax_len").innerHTML='The income tax is: '+tax_he;   
+    }
+    </script>
+
+</body>
+</html>

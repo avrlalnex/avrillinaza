@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Computation in Javascript</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://i.etsystatic.com/6423241/r/il/225ca0/1253078409/il_794xN.1253078409_3fu0.jpg" type="image/icon type">
+</head>
+<body>
+<div class="wrapper">
+<ul class="menu cf">
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="">Assignments</a>
+<ul class="submenu">
+<li><a href="Javascript.html">Assignment #1 - Simple Computation in Javascript</a></li>
+<li><a href="incometax.html">Assignment #2 - Income Tax Calculator Program</a></li>
+<li><a href="nthfactorial.html">Assignment #3 - Nth Factorial, Sum and Average</a></li>
+<li><a href="SimplePayroll.html">Assignment #4 - Simple Payroll</a></li>
+</ul> 
+</li>
+<li><a href="Aboutme.html">About Me</a></li>
+<li><a href="Feedback.html">Feedback</a></li>
+</ul>
+
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+<script>
+    function convertA(degree) {
+	var x;
+	if (degree == "C") {
+		x = document.getElementById("c").value * 9 / 5 + 32;
+		document.getElementById("f").value = Math.round(x);
+		} 
+	else {
+		x = (document.getElementById("f").value -32) * 5 / 9;
+		document.getElementById("c").value = Math.round(x);
+		}
+	}
+function convertB(length) {
+	var y;
+	if (length == "M") {
+		y = document.getElementById("m").value * 3.281;
+		document.getElementById("ft").value = (y);
+		}
+	else {
+		y = document.getElementById("ft").value / 3.281;
+		document.getElementById("m").value = (y);
+		}
+	}
+</script>
+<div id="container">
+	<h2>C to F | F to C</h2>
+		<p><input type="text" placeholder="Type Celsius Here" id="c" onkeyup="convertA('C')"> C</p>
+		<p><input type="text" placeholder="Type Fahrenheit Here" id="f" onkeyup="convertA()"> F</p>
+</div>
+<div id="container">
+	<h2>M to FT | FT to M</h2>
+		<p><input type="text" placeholder="Type Meters Here" id="m" onkeyup="convertB('M')"> m</p>
+		<p><input type="text" placeholder="Type Feet Here" id="ft" onkeyup="convertB()"> ft.</p>
+</div>
+</body>
+</html>
+		

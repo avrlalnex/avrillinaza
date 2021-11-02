@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Payroll</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://th.bing.com/th/id/OIP.TslY_euVT0J5fBFuE24swAHaHa?pid=ImgDet&rs=1" type="image/icon type">
+</head>
+<body>
+<div class="wrapper">
+<ul class="menu cf">
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="">Assignments</a>
+<ul class="submenu">
+<li><a href="Javascript.html">Assignment #1 - Simple Computation in Javascript</a></li>
+<li><a href="incometax.html">Assignment #2 - Income Tax Calculator Program</a></li>
+<li><a href="nthfactorial.html">Assignment #3 - Nth Factorial, Sum and Average</a></li>
+<li><a href="SimplePayroll.html">Assignment #4 - Simple Payroll</a></li>
+</ul> 
+</li>
+<li><a href="Aboutme.html">About Me</a></li>
+<li><a href="Feedback.html">Feedback</a></li>
+</ul>
+
+<br /><br /><br /><br /><br /><br />
+ <div id="payroll">
+        <h2><br>Simple Payroll</h2>
+       
+ <p>
+            <label for="name">Employee name: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="name"  placeholder="Enter Name" type="text" oninput="calcPay()" style="width: 10em;">
+<br /><br />
+            <label for="days">No. of Worked Days: </label>
+            <input id="days" placeholder="Working Days" oninput="calcPay()" style="width: 10em;">
+<br /><br />
+            <label for="rate">Daily Rate: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="rate" placeholder="Enter daily Rate" oninput="calcPay()" style="width: 10em;">
+<br /><br />
+            <label for="deduction">Deduction Amount: </label>
+            &nbsp;
+            <input id="deduction" placeholder="Amount of Deduction" oninput="calcPay()" style="width: 10em;">
+<br /><br />
+            <label for="pay">Payroll: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="pay" placeholder="Payroll" type="number" readonly style="width: 10em;"></input>
+<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="addEmp()">Add Employee to List</button>
+        </p>
+<br /><br />
+        <p>
+            <label for="number"> No of Employees: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="number" type="number" readonly style="width: 10em;">
+            <button onclick="clearList()"> Clear List </button> 
+<br /><br />
+            <label for="remove">Remove Employee No: </label>
+            <input id="remove" type="number" style="width: 10em;">
+            <button onclick="remEmp()">Remove</button>  
+        </p>
+
+        <p id="list"></p>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <br /> <br />  
+      
+        <script>
+            function startList(){
+                list = [];
+                document.getElementById("number").value=list.length;
+                document.getElementById("list").innerHTML="";
+            }
+
+            function addEmp(){
+
+                var empDet = {
+                    "name": "1",
+                    "days": 1,
+                    "rate": 0,
+                    "deduction": 0,
+                    "deduAmount" : function deduAmount(){
+                        return Math.round(this.rate*this.days*100/100);  
+                    },
+                    "payAmount" : function payAmount(){
+                        return Math.round(this.deduAmount()-this.dedu*100/100);  
+                    }
+                };
+
+                empDet.name=document.getElementById("name").value;
+                empDet.days=document.getElementById("days").value;
+                empDet.rate=document.getElementById("rate").value;
+                empDet.dedu=document.getElementById("deduction").value;
+
+                console.log(empDet.name);
+                console.log(empDet.days);
+                console.log(empDet.rate);
+                console.log(empDet.dedu);
+
+                list.push(empDet);
+
+                console.log(list.length);
+                document.getElementById("number").value=list.length;
+
+                showEmp();
+            }
+
+            function calcPay(){
+                var calcDays, calcRate, calcDedu, calcGross, calcPay;
+                calcDays = document.getElementById("days").value*1;
+                calcRate = document.getElementById("rate").value*1;
+                calcDedu = document.getElementById("deduction").value*1;
+
+                calcGross = Math.round(calcDays*calcRate*100/100);
+                calcPay = Math.round(calcGross-calcDedu*100/100);
+
+                console.log(calcGross);
+                console.log(calcPay);
+
+                document.getElementById("pay").value = calcPay;
+            }
+
+            function remEmp(){
+                var del, empNo;
+
+                empNo = document.getElementById("remove").value;
+                del = confirm("Do you want to remove Employee No. "+empNo+"?")
+
+                if (del){
+                    list.splice(empNo-1, 1);
+                    document.getElementById("number").value=list.length;
+                    showEmp();
+                }
+            }
+
+            function clearList(){
+                var clear = confirm("Do you want to clear the table?");
+
+                if (clear){
+                    startList();
+                }
+            }
+function showEmp(){
+                var count, empLength, empNo, itemText, grossAmount, totalPay;
+                var theader,tbody,tb,tfooter;
+                
+                theader ="<thead>";
+                theader+="<tr>";
+                theader+='<th style="font-family:Montserrat Medium;">No.</th>'; 
+                theader+='<th style="font-family:Montserrat Medium; width:100px; text-align:left">Employee Name</th>';
+                theader+="<th >Days Worked</th>";
+                theader+='<th style="font-family:Montserrat Medium; width:100px; text-align:left">Daily Rate</th>';
+                theader+='<th style="font-family:Montserrat Medium; width:100px; text-align:left">Gross Pay</th>';
+                theader+='<th style="font-family:Montserrat Medium; width:100px; text-align:left">Deduction Amount</th>';
+                theader+="<th>Net Pay</th>";
+                theader+="</tr>";
+                theader+="</thead>";
+                
+                empLength = list.length;
+
+                for (count = 0, itemText = "", tbody = ''; count < empLength; count++){
+                    empNo = count + 1;
+
+                    tbody += "<tr>"
+                        +'<td style="font-family:Montserrat Light; width:100px; text-align:center">'+empNo+'</td>'
+                        +'<td style="font-family:Montserrat Light; width:100px; text-align:center">'+list[count].name+' </td>'
+                        +'<td style="font-family:Montserrat Light; width:100px;">'+list[count].days+'</td>'
+                        +'<td style="font-family:Montserrat Light; width:100px; text-align:center">'+list[count].rate+'</td>'
+                        +'<td style="font-family:Montserrat Light; width:100px; text-align:center">'+list[count].deduAmount()+'</td>'
+                        +'<td style="font-family:Montserrat Light; width:100px; text-align:center">'+list[count].dedu+'</td>'
+                        +'<td style="font-family:Montserrat Light; width:100px; text-align:center">'+list[count].payAmount()+'</td>'
+                        +"</tr>";
+                }
+
+
+                console.log(theader+tbody+tfooter);
+                document.getElementById("list").innerHTML=
+                "<table>"+theader+tbody+"</table>";
+
+
+            }
+
+            var list = []; 
+
+
+        </script>
+</body>
+</html>
